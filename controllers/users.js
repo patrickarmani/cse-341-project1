@@ -22,7 +22,7 @@ const getSingle = async (req, res) => {
 
 const createUser = async (req, res) => {
     //#swagger.tags=['Users']
-    const userId = new ObjectId(req.params.id);
+    //const userId = new ObjectId(req.params.id);
     const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -43,11 +43,15 @@ const updateUser = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const user = {
         userName: req.body.username,
+        lastName: req.body.lastName,
         email:req.body.email,
-        name: req.body.name,
-        ipaddres: req.body.ipaddres
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+        //ipaddres: req.body.ipaddres
+
     };
     const response = await mongodb.getDatabase().db().collection('users').replaceOne({ _id: userId }, user);
+    console.log(response);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
@@ -59,6 +63,7 @@ const deleteUser = async (req, res) => {
     //#swagger.tags=['Users']
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('users').deleteOne({ _id: userId });
+    console.log(response);
     if (response.deleteCount > 0) {
         res.status(204).send();
     } else {
