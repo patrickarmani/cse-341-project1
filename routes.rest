@@ -6,6 +6,30 @@ GET http://localhost:3000/users
 ### Get user by id
 GET http://localhost:3000/users/65e40dbbd480720e14a100a9
 
-
-### Get 
+//PRODUCTION
+### Get all users
 GET https://project1-7z2r.onrender.com/users
+
+### Create Contact
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test5@exemple.com",
+    "username": "test5@test.com",
+    "name": "Hello4",
+    "ipaddress": "94.121.163.63"
+}
+
+### Put Contact
+PUT http://localhost:3000/users/65e40dbbd480720e14a100a9 HTTP/1.1
+content-type: application/json
+{
+    "email": "test5@exemple.com",
+    "username": "test5@test.com",
+    "name": "Hello4",
+    "ipaddress": "94.121.163.63"
+}
+
+### DELETE Contact
+DELETE http://localhost:3000/users/65e41011d480720e14a100ac HTTP/1.1
