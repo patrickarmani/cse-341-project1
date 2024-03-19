@@ -40,14 +40,14 @@ const createUser = async (req, res) => {
 //update User
 const updateUser = async (req, res) => {
     //#swagger.tags=['Users']
-    const userId = new ObjectId(req.params.id);
+    //const userId = new ObjectId(req.params.id);
     const user = {
         userName: req.body.username,
         lastName: req.body.lastName,
         email:req.body.email,
         favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday
-        //ipaddres: req.body.ipaddres
+        birthday: req.body.birthday,
+        ipaddres: req.body.ipaddres
 
     };
     const response = await mongodb.getDatabase().db().collection('users').replaceOne({ _id: userId }, user);
@@ -61,7 +61,7 @@ const updateUser = async (req, res) => {
 //delete User
 const deleteUser = async (req, res) => {
     //#swagger.tags=['Users']
-    const userId = new ObjectId(req.params.id);
+    //const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('users').deleteOne({ _id: userId });
     console.log(response);
     if (response.deleteCount > 0) {
