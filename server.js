@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./data/database');
 const app = express();
+const cors = require('cors');
+
 
 const port = process.env.PORT || 3001;
 
@@ -18,8 +20,8 @@ app.use((req, res, next) => {
   );
   next();
 })
-  .use(cors({ methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
-  .use(cors({ origin: '*'}))
+app.use(cors({ methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
+app.use(cors({ origin: '*'}))
 app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {
