@@ -15,9 +15,9 @@ POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "email": "test05@exemple.com",
-    "username": "test05@test.com",
-    "name": "Hello Mike",
+    "email": "test02@exemple.com",
+    "username": "test02@test.com",
+    "name": "Hello Patrick",
     "ipaddress": "94.121.163.63"
 }
 ###{   
@@ -38,9 +38,9 @@ content-type: application/json
 ### "ipaddress": "94.121.163.63"
 ###}
 {
-    "email": "test05@exemple.com",
-    "username": "test05@test.com",
-    "name": "Hello Mike",
+    "email": "test02@exemple.com",
+    "username": "test02@test.com",
+    "name": "Hello Patrick",
     "ipaddress": "94.121.163.63"
 }
 
