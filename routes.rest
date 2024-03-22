@@ -4,7 +4,7 @@ GET http://localhost:3000/users
 
 
 ### Get user by id
-GET http://localhost:3000/users/65e40fb4d480720e14a100ab
+GET http://localhost:3000/users/65fd6aeaaecfd5f9e9155e25
 
 //PRODUCTION
 ### Get all users
@@ -20,28 +20,21 @@ content-type: application/json
     "name": "Hello Patrick",
     "ipaddress": "94.121.163.63"
 }
-###{   
-    ###"id": "65f60819763ce65fe5bab1fb",
-    ###"firstName": "Luke",
-    ###"lastName": "Skywalker",
-    ###"email": "lukesky@email.com",
-    ###"favoriteColor": "blue",
-    ###"birthday": "03/25/4034"
-###}
+
 ### Put Contact
-PUT http://localhost:3000/users/65fccdde628e7e7aaf695309 HTTP/1.1
+PUT http://localhost:3000/users/65fd6ad8aecfd5f9e9155e24 HTTP/1.1
 content-type: application/json
-### {
-### "email": "test5@exemple.com",
-### "username": "test5@test.com",
-### "name": "Hello4",
-### "ipaddress": "94.121.163.63"
-###}
+
 {
-    "email": "test02@exemple.com",
-    "username": "test02@test.com",
-    "name": "Hello Patrick",
-    "ipaddress": "94.121.163.63"
+    "email": "test@exemple.com",
+    "username": "test@test.com",
+    "name": "Hello",
+    "ipaddress": "94.121.163.63",
+    "firstName": "Luke",
+    "lastName": "Starwalker",
+    "favoriteColor": "Blue",
+    "birthday": "07/02/1985"
+
 }
 
 
