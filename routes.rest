@@ -15,10 +15,14 @@ POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "email": "test02@exemple.com",
-    "username": "test02@test.com",
-    "name": "Hello Patrick",
-    "ipaddress": "94.121.163.63"
+    "email": "test@exemple.com",
+    "username": "test@test.com",
+    "name": "Hello",
+    "ipaddress": "94.121.163.63",
+    "firstName": "Patrick",
+    "lastName": "Armani",
+    "favoriteColor": "orange",
+    "birthday": "11/25/1978"
 }
 
 ### Put Contact
@@ -39,5 +43,5 @@ content-type: application/json
 
 
 ### DELETE Contact
-DELETE http://localhost:3000/users/65fccdde628e7e7aaf695309 HTTP/1.1
+DELETE http://localhost:3000/users/65fda83fcc023563ed8487a3 HTTP/1.1
 
