@@ -31,7 +31,7 @@ content-type: application/json
     "name": "Hello",
     "ipaddress": "94.121.163.63",
     "firstName": "Luke",
-    "lastName": "Starwalker",
+    "lastName": "Skywalker",
     "favoriteColor": "Blue",
     "birthday": "07/02/1985"
 
