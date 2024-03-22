@@ -5,11 +5,11 @@ const app = express();
 const cors = require('cors');
 
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
-  res.setHeader("Access-Controll-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization"
@@ -22,7 +22,9 @@ app.use((req, res, next) => {
 })
 app.use(cors({ methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
 app.use(cors({ origin: '*'}))
+app.use(bodyParser.json());
 app.use('/', require('./routes'));
+
 
 mongodb.initDb((err) => {
   if(err) {

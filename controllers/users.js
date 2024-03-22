@@ -22,13 +22,11 @@ const getSingle = async (req, res) => {
 
 const createUser = async (req, res) => {
     //#swagger.tags=['Users']
-    //const userId = new ObjectId(req.params.id);
     const user = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email:req.body.email,
-        favoriteColor:req.body.favoriteColor,
-        birthday: req.body.birthday
+        email: req.body.email,
+        username: req.body.username,
+        name: req.body.name,
+        ipaddress: req.body.ipaddress
     };
     const response = await mongodb.getDatabase().db().collection('users').insertOne(user);
     if (response.acknowledged) {
@@ -40,34 +38,32 @@ const createUser = async (req, res) => {
 //update User
 const updateUser = async (req, res) => {
     //#swagger.tags=['Users']
-    //const userId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.params.id);
     const user = {
-        userName: req.body.username,
-        lastName: req.body.lastName,
-        email:req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday,
-        ipaddres: req.body.ipaddres
+        email: req.body.email,
+        username: req.body.username,
+        name: req.body.name,
+        ipaddress: req.body.ipaddress
 
     };
     const response = await mongodb.getDatabase().db().collection('users').replaceOne({ _id: userId }, user);
-    console.log(response);
-    if (response.modifiedCount > 0) {
-        res.status(204).send();
+        //console.log(response);
+      if (response.modifiedCount > 0) {
+      res.status(204).send();
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the user.');
-    }
+        }
 };
 //delete User
 const deleteUser = async (req, res) => {
     //#swagger.tags=['Users']
-    //const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('users').deleteOne({ _id: userId });
-    console.log(response);
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb.getDatabase().db().collection('users').deleteOne({ _id: userId});
+    //console.log(response);
     if (response.deleteCount > 0) {
-        res.status(204).send();
+      res.status(204).send();
     } else {
-      res.status(500).json(response.error || 'Some error occurred while updating the user.');
+      res.status(500).json(response.error || 'Some error occurred while deleting the user.');
     }
 };
 module.exports = {
